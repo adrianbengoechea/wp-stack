@@ -1,0 +1,67 @@
+/*
+=========================================
+SITE FONTS
+=========================================
+*/
+$fallback_fonts: 'Arial, sans-serif';
+$fonts: (
+    primary: (
+      default: 'Lato',
+      alt: 'Lato Hairline'
+    ),
+    secondary: (
+      default: 'Noto Sans',
+    ),
+    alt: (
+      default: 'Montserrat',
+    )
+);
+
+
+
+/*
+=========================================
+GET FONT FUNCTION
+=========================================
+*/
+@function getfont($font, $type: 'default') {
+    $map_font: map-get($fonts, $font);
+    @return map-get($map_font, $type)#{', ' + $fallback_fonts};
+}
+
+
+
+/*
+=========================================
+CREATE FONTS CLASSESS
+=========================================
+*/
+@each $name, $thefont in $fonts{
+
+  .site-font-#{"" + $name}{
+      font-family: map-get($map: $thefont, $key: 'default') !important;
+  }
+  
+  @if( length($thefont) > 1 ){
+      @each $childname, $childcolor in $thefont{
+
+          @if( $childname != 'default'){
+              
+              .site-font-#{"" + $name}-#{$childname}{
+                  font-family: $childcolor !important
+              }
+              
+          }
+          
+      }
+  }
+  
+}
+
+
+
+/*
+=========================================
+IMPORT FONTS
+=========================================
+*/

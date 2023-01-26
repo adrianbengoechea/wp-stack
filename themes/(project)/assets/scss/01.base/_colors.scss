@@ -1,0 +1,79 @@
+
+/*
+=========================================
+SITE COLORS
+=========================================
+*/
+$colors: (
+    primary:(
+        default: #013468,
+        hover: #024d97,
+        alt: #424e5e,
+        light: #84a6c6
+    ),
+    secondary:(
+        default: #f5f6f8,
+        navbg: #eceff2,
+        navborder: #ebebeb,
+        alt: #f7f8fa
+    ),
+    alt: (
+        default: #a12d28
+    ),
+    dark:(
+        default: #000
+    ),
+    light:(
+        default: #FFF
+    )
+);
+
+
+
+/*
+=========================================
+GET COLOR FUNCTION
+=========================================
+*/
+@function getcolor($color, $tone: 'default', $colors: $colors) {
+    $map_color: map-get($colors, $color) !global;
+    @return map-get($map_color, $tone);
+}
+
+
+
+/*
+=========================================
+CREATE COLOR CLASS
+=========================================
+*/
+@each $name, $thecolor in $colors{
+
+    .site-color-#{"" + $name}{
+        color: map-get($map: $thecolor, $key: 'default') !important;
+    }
+    
+    .site-bg-#{"" + $name}{
+        background-color: map-get($map: $thecolor, $key: 'default') !important;
+    }
+
+    @if( length($thecolor) > 1 ){
+        @each $childname, $childcolor in $thecolor{
+
+            @if( $childname != 'default'){
+                
+                .site-color-#{"" + $name}-#{$childname}{
+                    color: $childcolor !important
+                }
+                
+                .site-bg-#{"" + $name}-#{$childname}{
+                    background-color: $childcolor !important
+                }
+                
+            }
+            
+        }
+    }
+    
+}
+/* ~~~~~~~~~~~~~~~~~~~~| END SITE CLASS COLORS |~~~~~~~~~~~~~~~~~~~~ */

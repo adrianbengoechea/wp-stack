@@ -1,0 +1,94 @@
+@include body{
+
+
+    .hero{
+
+        .hero__item{
+            &, .hero__wrap{
+                width: 100%;
+                height: 700px;
+                // height: 800px;
+                @include max-md{
+                    height: 500px;
+                }
+                @include max-sm{
+                    height: 450px;
+                }
+            }
+
+            .hero__wrap{
+                position: relative;
+                display: block;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .hero__background{
+                @include absolute-background;
+                z-index: 1;
+                .hero__background--img{
+                    @include absolute-background;
+                }
+                .hero__background--mobile{
+                    background-size: cover;
+                    background-position: center;
+                }
+                @include min-md{
+                    .hero__background--mobile{
+                        display: none;
+
+                    }
+                }
+                @include max-md{
+                    .hero__background--desktop{
+                        display: none;
+                    }
+                }
+            }
+
+            .hero__content{
+                color: getcolor(light);
+                
+                z-index: 2;
+                width: 100%;
+                display: block;
+
+                @include main-title-tags{
+                    font-family: getfont(secondary);
+                }
+
+                & > .container{
+                    
+                    width: 100%;  
+                    
+                    margin-bottom: 100px;
+                    @include max-md{
+                    margin-bottom: 0px;
+                    }
+                }
+                h1{
+                    font-size: 4rem;
+                    line-height: 1.3;
+                    @include max-lg{
+                        font-size: 3rem;
+                    }
+                    @include max-md{
+                        font-size: 2rem;
+                    }
+                }
+                p{
+                    max-width: 750px;
+                }
+
+            }
+
+        }
+
+
+
+
+
+    }
+}

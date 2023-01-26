@@ -1,0 +1,43 @@
+
+
+/* body :is(.business-dev-insights){
+    display: none;
+}
+body :is(.menu-item-login){
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+} */
+
+:is(.f-gilroy-medium, .f-gilroy-medium > p, .f-gilroy-medium > input, .f-gilroy-medium > li, .f-gilroy-medium > label, .f-gilroy-medium > div){
+    font-family: "Gilroy-Medium";
+}
+
+.wpcf7 .wpcf7-form-control-wrap{
+    width: 100%;
+}
+.wpcf7 .col.input-box{
+    margin: 19px 0;
+}
+
+.top-section .info-box .button{
+    margin-top: 40px;
+}
+:is(.color-white, .color-white a, .color-white p, .color-white div, .color-white label, .color-white li){
+    color: #FFF !important;
+}
+
+.bottom-section.remove-top-padding{
+    padding-top: 0 !important;
+    margin-top: -120px !important;
+}
+@media (max-width: 959.98px){
+    
+    .bottom-section.remove-top-padding{
+        margin-top: -50px !important;
+    }
+}
+
+:is(.page-template--cmo-non-gated-template, .page-template--process-template, .page-template--thank-you-template) .business-dev-insights h2.main-title{
+    text-align: center !important;
+}

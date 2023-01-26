@@ -1,0 +1,7 @@
+@include body('.page-template-default'){
+    main{
+        @include max-md{
+            margin-bottom: 40px;
+        }
+    }
+}
